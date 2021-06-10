@@ -25,7 +25,7 @@ public class CursoController {
 	@Autowired
 	CategoriaService categoriaService;
 	
-	@PostMapping ("novo-curso")
+	@PostMapping ("/novo-curso")
 	public ModelAndView homeCurso() {
 		ModelAndView view = new ModelAndView("curso");
 		List<Categoria> categorias = categoriaService.listaCategorias();
@@ -34,7 +34,7 @@ public class CursoController {
 		return view;
 	}
 	
-	@PostMapping("salvar-curso")
+	@PostMapping("/salvar-curso")
 	public String salvarCurso(@Valid Curso curso, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute(curso);
