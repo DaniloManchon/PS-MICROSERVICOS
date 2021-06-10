@@ -51,5 +51,7 @@ public class Curso implements Serializable {
 	public Categoria getCategoria() {
 		return categoria;
 	}
-
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }
