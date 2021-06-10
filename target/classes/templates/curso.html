@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Produtos</title>
+<title>Curso</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
@@ -13,40 +13,40 @@
 
 <style>
 .logo-container {
-	background-color: #000000;
-	color: #fff;
+	background-color: mediumpurple;
+	color: black;
 }
 </style>
 
 </head>
 <body>
 	<div class="container">
-		<div class="w-auto p-3 mt-3 logo-container">Produtos</div>
+		<div class="w-auto p-3 mt-3 logo-container">Cursos</div>
 		<div>
-			<h1 class="display-6">Produto</h1>
+			<h1 class="display-6">Curso</h1>
 		</div>
-		<form method="POST" th:object="${produto}"  th:action="@{/salvar-produto}">
+		<form method="POST" th:object="${curso}"  th:action="@{/salvar-curso}">
 		
 		<div class="form-row">		
 			<div><input type="hidden"  th:field="*{id}"></div>  
 			
 			<div class="form-group col-md-6 mt-3">
 	      		<label for="nome">Nome:</label>
-	     	 	<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Nome do produto" th:field="*{nome}">
+	     	 	<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Nome do curso" th:field="*{nome}">
 	     	 	<div th:errors="*{nome}" class="invalid-feedback"></div>
 	    	</div>    
 	    	
 	    	<div class="form-group col-md-6 mt-3">
-	      		<label for="nome">SKU:</label>
-	     	 	<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="SKU do produto" th:field="*{sku}">
-	     	 	<div th:errors="*{sku}" class="invalid-feedback"></div>
+	      		<label for="nome">Duração:</label>
+	     	 	<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Duração do curso" th:field="*{duracao}">
+	     	 	<div th:errors="*{duracao}" class="invalid-feedback"></div>
 	    	</div>
 	    	
 	    	<div class="form-group col-md-6 mt-3">
 	      		<select class="form-select" th:field="*{categoria.id}">
 		      		<option th:each="var : ${categorias}"
 		      		th:value="${var.id}"
-		      		th:text="${var.nomeDescricao}">	     		
+		      		th:text="${var.nomeDescricao}">
 		      		</option>	      		
 	      		</select>
 	    	</div>
@@ -59,8 +59,8 @@
 	    	
 	    	<div class="form-group col-md-2 mt-3">
 	      		<label for="nome">Preco:</label>
-	     	 	<input type="number" class="form-control" th:errorclass="is-invalid" placeholder="Preço do produto" th:field="*{preco}">
-	     	 	<div th:errors="*{sku}" class="invalid-feedback"></div>
+	     	 	<input type="number" class="form-control" th:errorclass="is-invalid" placeholder="Preço do curso" th:field="*{preco}">
+	     	 	<div th:errors="*{duracao}" class="invalid-feedback"></div>
 	    	</div> 
 		</div>
 		

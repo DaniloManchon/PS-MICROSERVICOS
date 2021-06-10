@@ -1,9 +1,9 @@
 package com.fiap.psmicrosservicos.controller;
 
 import com.fiap.psmicrosservicos.dto.Categoria;
-import com.fiap.psmicrosservicos.dto.Produto;
+import com.fiap.psmicrosservicos.dto.Curso;
 import com.fiap.psmicrosservicos.service.CategoriaService;
-import com.fiap.psmicrosservicos.service.ProdutoService;
+import com.fiap.psmicrosservicos.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,46 +17,46 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class ProdutoController {
+public class CursoController {
 	
 	@Autowired
-	ProdutoService service;
+	CursoService service;
 	
 	@Autowired
 	CategoriaService categoriaService;
 	
-	@GetMapping("novo-produto")
-	public ModelAndView homeProduto() {
-		ModelAndView view = new ModelAndView("produto");
+	@PostMapping ("novo-curso")
+	public ModelAndView homeCurso() {
+		ModelAndView view = new ModelAndView("curso");
 		List<Categoria> categorias = categoriaService.listaCategorias();
 		view.addObject("categorias",categorias);
-		view.addObject(new Produto());
+		view.addObject(new Curso());
 		return view;
 	}
 	
-	@PostMapping("salvar-produto")
-	public String salvarProduto(@Valid Produto produto, BindingResult result, Model model) {
+	@PostMapping("salvar-curso")
+	public String salvarCurso(@Valid Curso curso, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			model.addAttribute(produto);
-			return "produto";
+			model.addAttribute(curso);
+			return "curso";
 		}
-		service.salvarProduto(produto);
+		service.salvarCurso(curso);
 		return "redirect:/";
 	}
 
-	@GetMapping("/produto/{id}")
-	public ModelAndView editarProduto(@PathVariable Long id) {		
-		ModelAndView view = new ModelAndView("produto");	
-		Produto produto = service.editarProduto(id);
+	@GetMapping("/curso/{id}")
+	public ModelAndView editarCurso(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView("curso");
+		Curso curso = service.editarCurso(id);
 		List<Categoria> categorias = categoriaService.listaCategorias();
 		view.addObject("categorias",categorias);
-		view.addObject("produto", produto);
+		view.addObject("curso", curso);
 		return view;		
 	}
 	
-	@GetMapping("/produto/excluir/{id}")
-	public String excluirProduto(@PathVariable Long id) {		
-		service.excluirProduto(id);	
+	@GetMapping("/curso/excluir/{id}")
+	public String excluirCurso(@PathVariable Long id) {
+		service.excluirCurso(id);
 		return "redirect:/";	
 	}
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home-Cursos</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+	rel="stylesheet" />
+
+<style>
+.logo-container {
+	background-color: mediumpurple;
+	color: black;
+}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="w-auto p-3 mt-3 logo-container">Cursos</div>
+		<div>
+			<h1 class="display-6">Cursos</h1>
+		</div>
+		<form method="POST" th:action="@{/novo-curso}">
+			<div>
+				<button type="submit" class="btn btn-light">Novo Curso</button>
+			</div>
+		</form>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Preço</th>
+					<th class="text-center" scope="col">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cursos : ${curso}">
+					<td th:text="${cursos.nome}"></td>
+					<td th:text="${cursos.preco}"></td>
+					<td class="text-center">
+						<a th:href="@{/curso/{id}(id = ${cursos.id})}" class="btn btn-primary">editar</a>
+						<a th:href="@{/curso/excluir/{id}(id = ${cursos.id})}" class="btn btn btn-danger">excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

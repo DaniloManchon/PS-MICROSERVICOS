@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Produtos</title>
+<title>Home-Cursos</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
@@ -13,21 +13,21 @@
 
 <style>
 .logo-container {
-	background-color: #000000;
-	color: #fff;
+	background-color: mediumpurple;
+	color: black;
 }
 </style>
 
 </head>
 <body>
 	<div class="container">
-		<div class="w-auto p-3 mt-3 logo-container">Produtos</div>
+		<div class="w-auto p-3 mt-3 logo-container">Cursos</div>
 		<div>
-			<h1 class="display-6">Produtos</h1>
+			<h1 class="display-6">Cursos</h1>
 		</div>
-		<form th:action="@{/novo-produto}">
+		<form method="POST" th:action="@{/novo-curso}">
 			<div>
-				<button type="submit" class="btn btn-light">Novo Produto</button>
+				<button type="submit" class="btn btn-light">Novo Curso</button>
 			</div>
 		</form>
 
@@ -36,16 +36,16 @@
 				<tr>
 					<th scope="col">Nome</th>
 					<th scope="col">Preço</th>
-					<th class="text-center" scope="col">Ação</th>
+					<th class="text-center" scope="col">Ações</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="produto : ${produtos}">
-					<td th:text="${produto.nome}"></td>
-					<td th:text="${produto.preco}"></td>
+				<tr th:each="cursos : ${curso}">
+					<td th:text="${cursos.nome}"></td>
+					<td th:text="${cursos.preco}"></td>
 					<td class="text-center">
-						<a th:href="@{/produto/{id}(id = ${produto.id})}" class="btn btn-primary">editar</a> 
-						<a th:href="@{/produto/excluir/{id}(id = ${produto.id})}" class="btn btn btn-danger">excluir</a>
+						<a th:href="@{/curso/{id}(id = ${cursos.id})}" class="btn btn-primary">editar</a>
+						<a th:href="@{/curso/excluir/{id}(id = ${cursos.id})}" class="btn btn btn-danger">excluir</a>
 					</td>
 				</tr>
 			</tbody>

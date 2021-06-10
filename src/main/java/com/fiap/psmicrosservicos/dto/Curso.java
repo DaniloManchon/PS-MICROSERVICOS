@@ -4,14 +4,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class Produto implements Serializable {
+public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 1L;	
 	private Long id;
 	@NotBlank
 	private String nome;
 	@NotBlank
-	private String sku;
+	private String duracao;
 	private String descricao;
 	@NotNull
 	private Double preco;
@@ -30,11 +30,11 @@ public class Produto implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getSku() {
-		return sku;
+	public String getDuracao() {
+		return duracao;
 	}
-	public void setSku(String sku) {
-		this.sku = sku;
+	public void setDuracao(String duracao) {
+		this.duracao = duracao;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -51,10 +51,5 @@ public class Produto implements Serializable {
 	public Categoria getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	
-	
 
 }

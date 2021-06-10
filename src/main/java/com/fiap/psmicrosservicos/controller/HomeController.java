@@ -1,8 +1,8 @@
 package com.fiap.psmicrosservicos.controller;
 
 
-import com.fiap.psmicrosservicos.dto.Produto;
-import com.fiap.psmicrosservicos.service.impl.ProdutoServiceImpl;
+import com.fiap.psmicrosservicos.dto.Curso;
+import com.fiap.psmicrosservicos.service.impl.CursoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +13,13 @@ import java.util.List;
 public class HomeController {
 	
 	@Autowired
-	private ProdutoServiceImpl service;
+	private CursoServiceImpl service;
 	
 	@GetMapping("/")
 	public ModelAndView home() {
-		ModelAndView view = new ModelAndView("home-produtos");
-		List<Produto> produtos = service.listaProdutos();
-		view.addObject("produtos", produtos);
+		ModelAndView view = new ModelAndView("home-cursos");
+		List<Curso> curso = service.listaCurso();
+		view.addObject("curso", curso);
 		return view;		
 	}
 

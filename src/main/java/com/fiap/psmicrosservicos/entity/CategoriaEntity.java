@@ -1,6 +1,14 @@
 package com.fiap.psmicrosservicos.entity;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.util.List;
 
 @Entity
@@ -8,15 +16,14 @@ import java.util.List;
 public class CategoriaEntity {
 	
 	@Id
-	@Column(name = "id_categoria")
+	@Column(name = "ID_CATEGORIA")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEG_CATEGORIA")
 	@SequenceGenerator(name = "SEG_CATEGORIA",sequenceName = "SEG_CATEGORIA",allocationSize = 1)
 	private Long id;
-	
 	private String nomeDescricao;
 	
 	@OneToMany(mappedBy = "categoria")
-	private List<ProdutoEntity> produtos;
+	private List<CursoEntity> curso;
 
 	public Long getId() {
 		return id;
@@ -34,12 +41,11 @@ public class CategoriaEntity {
 		this.nomeDescricao = nomeDescricao;
 	}
 
-	public List<ProdutoEntity> getProdutos() {
-		return produtos;
+	public List<CursoEntity> getCurso() {
+		return curso;
 	}
 
-	public void setProdutos(List<ProdutoEntity> produtos) {
-		this.produtos = produtos;
+	public void setCurso(List<CursoEntity> curso) {
+		this.curso = curso;
 	}
-
 }

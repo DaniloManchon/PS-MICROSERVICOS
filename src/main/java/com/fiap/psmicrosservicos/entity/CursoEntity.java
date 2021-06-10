@@ -3,18 +3,16 @@ package com.fiap.psmicrosservicos.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_produto")
-public class ProdutoEntity {
+@Table(name = "tb_curso")
+public class CursoEntity {
 	
 	@Id
-	@Column(name = "ID_PRODUTO" )
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEG_PRODUTO")
-	@SequenceGenerator(name = "SEG_PRODUTO", sequenceName = "SEG_PRODUTO",allocationSize = 1)
+	@Column(name = "ID_CURSO" )
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEG_CURSO")
+	@SequenceGenerator(name = "SEG_CURSO", sequenceName = "SEG_CURSO",allocationSize = 1)
 	private Long id;
-		
 	private String nome;
-	
-	private String sku;
+	private String duracao;
 	private String descricao;
 	private Double preco;
 	
@@ -34,11 +32,11 @@ public class ProdutoEntity {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getSku() {
-		return sku;
+	public String getDuracao() {
+		return duracao;
 	}
-	public void setSku(String sku) {
-		this.sku = sku;
+	public void setDuracao(String duracao) {
+		this.duracao = duracao;
 	}
 	public String getDescricao() {
 		return descricao;
