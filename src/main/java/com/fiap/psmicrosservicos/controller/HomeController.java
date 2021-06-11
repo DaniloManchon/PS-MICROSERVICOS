@@ -14,8 +14,13 @@ public class HomeController {
 	
 	@Autowired
 	private CursoServiceImpl service;
-	
+
 	@GetMapping("/")
+	public ModelAndView login() {
+		ModelAndView view = new ModelAndView("login");
+		return view;
+	}
+	@GetMapping("/home")
 	public ModelAndView home() {
 		ModelAndView view = new ModelAndView("home-cursos");
 		List<Curso> curso = service.listaCurso();
@@ -23,4 +28,11 @@ public class HomeController {
 		return view;		
 	}
 
+	@GetMapping("/usuario")
+	public ModelAndView homeUsuario() {
+		ModelAndView view = new ModelAndView("home-usuario");
+		List<Curso> curso = service.listaCurso();
+		view.addObject("curso", curso);
+		return view;
+	}
 }

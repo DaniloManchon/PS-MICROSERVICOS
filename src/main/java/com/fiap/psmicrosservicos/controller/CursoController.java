@@ -41,7 +41,7 @@ public class CursoController {
 			return "curso";
 		}
 		service.salvarCurso(curso);
-		return "redirect:/";
+		return "redirect:/home";
 	}
 
 	@GetMapping("/curso/{id}")
@@ -57,6 +57,6 @@ public class CursoController {
 	@GetMapping("/curso/excluir/{id}")
 	public String excluirCurso(@PathVariable Long id) {
 		service.excluirCurso(id);
-		return "redirect:/";	
+		return "redirect:/home";
 	}
 }

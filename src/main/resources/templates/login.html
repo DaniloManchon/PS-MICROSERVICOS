@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" />
+    <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+          rel="stylesheet" />
+
+    <style>
+        .logo-container {
+            background-color: mediumpurple;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+
+    <div>
+        <h1 class="display-6">Fazer Login</h1>
+    </div>
+    <hr>
+    <form method="GET" th:action="@{/home}">
+        <div>
+            <button type="submit" class="btn btn-light">Fazer Login Admin</button>
+        </div>
+    </form>
+    </br>
+    </form>
+    <form method="GET" th:action="@{/usuario}">
+        <div>
+            <button type="submit" class="btn btn-light">Fazer Login Usuario</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

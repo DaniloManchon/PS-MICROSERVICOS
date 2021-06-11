@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Home-Cursos</title>
+  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+        rel="stylesheet" />
+  <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+        rel="stylesheet" />
+
+</head>
+<body>
+<div class="container">
+
+  <div>
+    <h1 class="display-6">Cursos Disponiveis</h1>
+  </div>
+  <hr>
+  <form method="GET" th:action="@{/}">
+    <div>
+      <button type="submit" class="btn btn-light">Voltar para a area de login</button>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Descrição</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cursos : ${curso}">
+      <td th:text="${cursos.nome}"></td>
+      <td th:text="${cursos.preco}"></td>
+      <td th:text="${cursos.descricao}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
