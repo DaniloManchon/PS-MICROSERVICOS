@@ -21,13 +21,20 @@
 </head>
 <body>
 	<div class="container">
-		<div class="w-auto p-3 mt-3 logo-container">Cursos</div>
+
 		<div>
 			<h1 class="display-6">Cursos</h1>
 		</div>
+		<hr>
 		<form method="POST" th:action="@{/novo-curso}">
 			<div>
 				<button type="submit" class="btn btn-light">Novo Curso</button>
+			</div>
+		</form>
+		</br>
+		<form method="GET" th:action="@{/}">
+			<div>
+				<button type="submit" class="btn btn-light">Voltar para a area de login</button>
 			</div>
 		</form>
 
@@ -36,6 +43,7 @@
 				<tr>
 					<th scope="col">Nome</th>
 					<th scope="col">Preço</th>
+					<th scope="col">Descrição</th>
 					<th class="text-center" scope="col">Ações</th>
 				</tr>
 			</thead>
@@ -43,6 +51,7 @@
 				<tr th:each="cursos : ${curso}">
 					<td th:text="${cursos.nome}"></td>
 					<td th:text="${cursos.preco}"></td>
+					<td th:text="${cursos.descricao}"></td>
 					<td class="text-center">
 						<a th:href="@{/curso/{id}(id = ${cursos.id})}" class="btn btn-primary">editar</a>
 						<a th:href="@{/curso/excluir/{id}(id = ${cursos.id})}" class="btn btn btn-danger">excluir</a>
