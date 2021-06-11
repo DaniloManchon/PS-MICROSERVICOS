@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" />
+    <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+          rel="stylesheet" />
+
+    <style>
+         .Heading {
+             text-align: center;
+         }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <img src="/logo_cortado.jpg" class="img-fluid" alt="Logo">
+    <div class="Heading">
+
+        <p>Nós da PS13SI estamos orgulhosos em poder te oferecer o que há de mais moderno em nossos bootcamps.</p>
+        <p>Com nossos cursos, você ou seus colaboradores estarão aptos a enfrentarem os maiores desafios nas áreas de: <br><br>
+            <b>UI:</b> Desenvolvimento de interfaces que agradam seus clientes, oferecem todas as informações que eles precisam e são bonitas. <br>
+            <b>UX:</b> Proporcione aos seus clientes uma expêriencia nunca antes vista! Mostre para ele que seu site não é apenas bonito, é rápido e funcional também. Agrade gregos e troianos. <br>
+            <b>DevOps:</b> Mantenha seu desenvolvimento sob controle. Automatize pipelines, deploys e testes com o que há de mais novo para um profissional de DevOps, uma área que vem em crescente nunca antes vista no mercado. <br>
+        </p>
+    </div>
+    <br>
+    <div>
+        <h1 class="display-6">Fazer Login</h1>
+    </div>
+    <hr>
+    <form method="GET" th:action="@{/home}">
+        <div>
+            <button type="submit" class="btn btn-light">Fazer Login Admin</button>
+        </div>
+    </form>
+    </br>
+    </form>
+    <form method="GET" th:action="@{/usuario}">
+        <div>
+            <button type="submit" class="btn btn-light">Fazer Login Usuario</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
